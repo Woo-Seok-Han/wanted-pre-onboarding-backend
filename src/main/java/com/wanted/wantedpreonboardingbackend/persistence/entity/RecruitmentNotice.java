@@ -25,9 +25,11 @@ public class RecruitmentNotice {
     @Column(name = "recruitment_notice_id")
     private Long id;
 
-    private String companyId;
+    private Long companyId;
 
-    private int compensation;
+    private int compensationAmount;
+
+    private String position;
 
     private String content;
 
@@ -36,5 +38,14 @@ public class RecruitmentNotice {
 
     @OneToMany(mappedBy = "recruitmentNotice", cascade = CascadeType.ALL)
     private List<RecruitmentNoticeDetail> recruitmentNoticeDetails;
+
+    public RecruitmentNotice(Long companyId, int compensationAmount, String position, String content,
+        RequirementSkill requirementSkill) {
+        this.companyId = companyId;
+        this.compensationAmount = compensationAmount;
+        this.position = position;
+        this.content = content;
+        this.requirementSkill = requirementSkill;
+    }
 
 }
