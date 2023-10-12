@@ -5,6 +5,8 @@ import static com.wanted.wantedpreonboardingbackend.controller.dto.RecruitmentNo
 
 import com.wanted.wantedpreonboardingbackend.service.RecruitmentService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -21,6 +23,12 @@ public class RecruitmentController {
     @PostMapping("/notice")
     public ResponseDto registerRecruitmentNotice(RequestDto requestDto) {
         return recruitmentService.registerNotice(requestDto);
+    }
+
+    @ResponseBody
+    @GetMapping("/notice/{id}")
+    public ResponseDto findRecruitmentNotice(@PathVariable(name = "id") final Long id) {
+        return recruitmentService.findNotice(id);
     }
 
 }
