@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,4 +32,9 @@ public class RecruitmentController {
         return recruitmentService.findNotice(id);
     }
 
+    @ResponseBody
+    @PutMapping("/notice/{id}")
+    public ResponseDto modifyRecruitmentNotice(@PathVariable(name = "id") final Long id, RequestDto requestDto) {
+        return recruitmentService.modifyNotice(id, requestDto);
+    }
 }

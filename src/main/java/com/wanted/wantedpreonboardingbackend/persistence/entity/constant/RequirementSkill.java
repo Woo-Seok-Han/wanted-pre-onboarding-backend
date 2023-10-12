@@ -2,5 +2,5 @@ package com.wanted.wantedpreonboardingbackend.persistence.entity.constant;
 
 public enum RequirementSkill {
 
-    PYTHON, JAVA, JAVASCRIPT, DJANGO
+    SPRINGBOOT, PYTHON, JAVA, JAVASCRIPT, DJANGO, REACT, SPRING,
 }

@@ -1,5 +1,6 @@
 package com.wanted.wantedpreonboardingbackend.persistence.entity;
 
+import com.wanted.wantedpreonboardingbackend.controller.dto.RecruitmentNoticeDto.RequestDto;
 import com.wanted.wantedpreonboardingbackend.persistence.entity.constant.RequirementSkill;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -48,4 +49,10 @@ public class RecruitmentNotice {
         this.requirementSkill = requirementSkill;
     }
 
+    public void update(RequestDto requestDto) {
+        this.compensationAmount = requestDto.compensationAmount();;
+        this.position = requestDto.position();
+        this.content = requestDto.content();
+        this.requirementSkill = requestDto.requirementSkill();
+    }
 }
