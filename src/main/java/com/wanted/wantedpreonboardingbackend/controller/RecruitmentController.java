@@ -5,6 +5,7 @@ import static com.wanted.wantedpreonboardingbackend.controller.dto.RecruitmentNo
 
 import com.wanted.wantedpreonboardingbackend.service.RecruitmentService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -36,5 +37,12 @@ public class RecruitmentController {
     @PutMapping("/notice/{id}")
     public ResponseDto modifyRecruitmentNotice(@PathVariable(name = "id") final Long id, RequestDto requestDto) {
         return recruitmentService.modifyNotice(id, requestDto);
+    }
+
+    @ResponseBody
+    @DeleteMapping("notice/{id}")
+    public String deleteRecruitmentNotice(@PathVariable(name = "id") final Long id) {
+        recruitmentService.deleteNotice(id);
+        return "채용공고가 삭제 되었습니다.";
     }
 }

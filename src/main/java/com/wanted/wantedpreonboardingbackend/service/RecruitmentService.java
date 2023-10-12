@@ -37,4 +37,11 @@ public class RecruitmentService {
         notice.update(requestDto);
         return new ResponseDto(notice);
     }
+
+    @Transactional
+    public void deleteNotice(final Long id) {
+        RecruitmentNotice notice = recruitmentNoticeRepository.findById(id)
+            .orElseThrow(() -> new IllegalStateException("해당하는 채용 공고가 존재하지 않습니다."));
+        recruitmentNoticeRepository.delete(notice);
+    }
 }
