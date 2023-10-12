@@ -1,5 +1,6 @@
 package com.wanted.wantedpreonboardingbackend.persistence.entity;
 
+import com.wanted.wantedpreonboardingbackend.controller.dto.RecruitmentNoticeDto;
 import com.wanted.wantedpreonboardingbackend.persistence.entity.constant.RequirementSkill;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -11,13 +12,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import java.util.List;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+
+import lombok.*;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
 @Getter
+@Builder
 public class RecruitmentNotice {
 
     @Id
@@ -25,9 +27,11 @@ public class RecruitmentNotice {
     @Column(name = "recruitment_notice_id")
     private Long id;
 
-    private String companyId;
+    private Long companyId;
 
-    private int compensation;
+    private String position;
+
+    private int compensationAmount;
 
     private String content;
 
@@ -37,4 +41,11 @@ public class RecruitmentNotice {
     @OneToMany(mappedBy = "recruitmentNotice", cascade = CascadeType.ALL)
     private List<RecruitmentNoticeDetail> recruitmentNoticeDetails;
 
+    public void update(RecruitmentNoticeDto.RequestDto updateDto) {
+        this.companyId = updateDto.companyId();
+        this.position = updateDto.position();
+        this.compensationAmount = updateDto.compensationAmount();
+        this.content = updateDto.content();
+        this.requirementSkill = updateDto.requirementSkill();
+    }
 }
