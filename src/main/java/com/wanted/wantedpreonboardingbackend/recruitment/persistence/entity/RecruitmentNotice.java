@@ -1,7 +1,7 @@
-package com.wanted.wantedpreonboardingbackend.persistence.entity;
+package com.wanted.wantedpreonboardingbackend.recruitment.persistence.entity;
 
-import com.wanted.wantedpreonboardingbackend.controller.dto.RecruitmentNoticeDto.RequestDto;
-import com.wanted.wantedpreonboardingbackend.persistence.entity.constant.RequirementSkill;
+import com.wanted.wantedpreonboardingbackend.recruitment.controller.dto.RecruitmentNoticeDto.RequestDto;
+import com.wanted.wantedpreonboardingbackend.recruitment.persistence.entity.constant.RequirementSkill;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

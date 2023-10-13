@@ -1,11 +1,11 @@
-package com.wanted.wantedpreonboardingbackend.service;
+package com.wanted.wantedpreonboardingbackend.recruitment.service;
 
-import static com.wanted.wantedpreonboardingbackend.controller.dto.RecruitmentNoticeDto.RequestDto;
+import static com.wanted.wantedpreonboardingbackend.recruitment.controller.dto.RecruitmentNoticeDto.RequestDto;
 
-import com.wanted.wantedpreonboardingbackend.controller.dto.RecruitmentNoticeDto.ResponseDto;
-import com.wanted.wantedpreonboardingbackend.persistence.entity.RecruitmentNotice;
-import com.wanted.wantedpreonboardingbackend.persistence.repository.RecruitmentNoticeDetailRepository;
-import com.wanted.wantedpreonboardingbackend.persistence.repository.RecruitmentNoticeRepository;
+import com.wanted.wantedpreonboardingbackend.recruitment.controller.dto.RecruitmentNoticeDto.ResponseDto;
+import com.wanted.wantedpreonboardingbackend.recruitment.persistence.entity.RecruitmentNotice;
+import com.wanted.wantedpreonboardingbackend.recruitment.persistence.repository.RecruitmentNoticeDetailRepository;
+import com.wanted.wantedpreonboardingbackend.recruitment.persistence.repository.RecruitmentNoticeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -1,9 +1,9 @@
-package com.wanted.wantedpreonboardingbackend.controller;
+package com.wanted.wantedpreonboardingbackend.recruitment.controller;
 
-import static com.wanted.wantedpreonboardingbackend.controller.dto.RecruitmentNoticeDto.RequestDto;
-import static com.wanted.wantedpreonboardingbackend.controller.dto.RecruitmentNoticeDto.ResponseDto;
+import static com.wanted.wantedpreonboardingbackend.recruitment.controller.dto.RecruitmentNoticeDto.RequestDto;
+import static com.wanted.wantedpreonboardingbackend.recruitment.controller.dto.RecruitmentNoticeDto.ResponseDto;
 
-import com.wanted.wantedpreonboardingbackend.service.RecruitmentService;
+import com.wanted.wantedpreonboardingbackend.recruitment.service.RecruitmentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;

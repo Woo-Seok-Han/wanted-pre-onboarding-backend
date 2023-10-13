@@ -1,4 +1,4 @@
-package com.wanted.wantedpreonboardingbackend.persistence.entity.constant;
+package com.wanted.wantedpreonboardingbackend.recruitment.persistence.entity.constant;
 
 public enum RequirementSkill {
 

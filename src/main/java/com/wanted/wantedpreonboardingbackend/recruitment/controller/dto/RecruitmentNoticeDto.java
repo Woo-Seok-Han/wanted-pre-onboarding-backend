@@ -1,7 +1,7 @@
-package com.wanted.wantedpreonboardingbackend.controller.dto;
+package com.wanted.wantedpreonboardingbackend.recruitment.controller.dto;
 
-import com.wanted.wantedpreonboardingbackend.persistence.entity.RecruitmentNotice;
-import com.wanted.wantedpreonboardingbackend.persistence.entity.constant.RequirementSkill;
+import com.wanted.wantedpreonboardingbackend.recruitment.persistence.entity.RecruitmentNotice;
+import com.wanted.wantedpreonboardingbackend.recruitment.persistence.entity.constant.RequirementSkill;
 
 public class RecruitmentNoticeDto {
     /* {
