@@ -23,6 +23,7 @@ public class Users {
     private String name;
 
     private Users(String name) {
+        this.id = null;
         this.name = name;
     }
 

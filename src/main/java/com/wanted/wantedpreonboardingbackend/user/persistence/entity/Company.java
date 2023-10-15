@@ -31,6 +31,7 @@ public class Company {
     private String region;
 
     private Company(String name, Nation nation, String region) {
+        this.id = null;
         this.name = name;
         this.nation = nation;
         this.region = region;
