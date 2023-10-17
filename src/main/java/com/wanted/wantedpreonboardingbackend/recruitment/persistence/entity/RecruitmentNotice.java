@@ -2,15 +2,20 @@ package com.wanted.wantedpreonboardingbackend.recruitment.persistence.entity;
 
 import com.wanted.wantedpreonboardingbackend.recruitment.controller.dto.RecruitmentNoticeDto.RequestDto;
 import com.wanted.wantedpreonboardingbackend.recruitment.persistence.entity.constant.RequirementSkill;
+import com.wanted.wantedpreonboardingbackend.user.persistence.entity.Company;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import java.util.List;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -26,7 +31,9 @@ public class RecruitmentNotice {
     @Column(name = "recruitment_notice_id")
     private Long id;
 
-    private Long companyId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "company_id")
+    private Company company;
 
     private int compensationAmount;
 
@@ -40,9 +47,9 @@ public class RecruitmentNotice {
     @OneToMany(mappedBy = "recruitmentNotice", cascade = CascadeType.ALL)
     private List<RecruitmentNoticeDetail> recruitmentNoticeDetails;
 
-    public RecruitmentNotice(Long companyId, int compensationAmount, String position, String content,
+    public RecruitmentNotice(int compensationAmount, String position, String content,
         RequirementSkill requirementSkill) {
-        this.companyId = companyId;
+        this.company = null;
         this.compensationAmount = compensationAmount;
         this.position = position;
         this.content = content;
@@ -54,5 +61,9 @@ public class RecruitmentNotice {
         this.position = requestDto.position();
         this.content = requestDto.content();
         this.requirementSkill = requestDto.requirementSkill();
+    }
+
+    public void updateCompany(Company company) {
+        this.company = company;
     }
 }

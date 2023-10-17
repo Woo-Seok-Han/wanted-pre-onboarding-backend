@@ -13,5 +13,9 @@ spring:
     hibernate:
       ddl-auto: update
 
+    properties:
+      hibernate:
+        format_sql: true
+
 springdoc:
   use-fqn: true

@@ -2,6 +2,7 @@ package com.wanted.wantedpreonboardingbackend.recruitment.controller.dto;
 
 import com.wanted.wantedpreonboardingbackend.recruitment.persistence.entity.RecruitmentNotice;
 import com.wanted.wantedpreonboardingbackend.recruitment.persistence.entity.constant.RequirementSkill;
+import com.wanted.wantedpreonboardingbackend.user.persistence.entity.Company;
 
 public class RecruitmentNoticeDto {
     /* {
@@ -18,9 +19,8 @@ public class RecruitmentNoticeDto {
         String content,
         RequirementSkill requirementSkill
     ) {
-        public RecruitmentNotice toEntity(){
+        public RecruitmentNotice toEntity(Company company){
             return new RecruitmentNotice(
-                companyId,
                 compensationAmount,
                 position,
                 content,
@@ -30,7 +30,8 @@ public class RecruitmentNoticeDto {
     }
 
     public record ResponseDto(
-        Long companyId,
+        Long id,
+        String companyName,
         String position,
         int compensation,
         String content,
@@ -38,7 +39,8 @@ public class RecruitmentNoticeDto {
     ) {
         public ResponseDto(RecruitmentNotice entity) {
             this(
-                entity.getCompanyId(),
+                entity.getId(),
+                entity.getCompany().getName(),
                 entity.getPosition(),
                 entity.getCompensationAmount(),
                 entity.getContent(),

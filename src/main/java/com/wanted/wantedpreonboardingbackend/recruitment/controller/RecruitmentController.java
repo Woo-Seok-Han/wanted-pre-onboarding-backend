@@ -4,6 +4,7 @@ import static com.wanted.wantedpreonboardingbackend.recruitment.controller.dto.R
 import static com.wanted.wantedpreonboardingbackend.recruitment.controller.dto.RecruitmentNoticeDto.ResponseDto;
 
 import com.wanted.wantedpreonboardingbackend.recruitment.service.RecruitmentService;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,6 +32,12 @@ public class RecruitmentController {
     @GetMapping("/notice/{id}")
     public ResponseDto findRecruitmentNotice(@PathVariable(name = "id") final Long id) {
         return recruitmentService.findNotice(id);
+    }
+
+    @ResponseBody
+    @GetMapping("/notice/list")
+    public List<ResponseDto> findRecruitmentNotice() {
+        return recruitmentService.findAllNotice();
     }
 
     @ResponseBody
