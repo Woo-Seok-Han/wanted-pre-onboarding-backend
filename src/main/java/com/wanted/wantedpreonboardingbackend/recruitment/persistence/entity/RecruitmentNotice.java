@@ -39,31 +39,33 @@ public class RecruitmentNotice {
 
     private String position;
 
-    private String content;
-
     @Enumerated(EnumType.STRING)
     private RequirementSkill requirementSkill;
 
-    @OneToMany(mappedBy = "recruitmentNotice", cascade = CascadeType.ALL)
-    private List<RecruitmentNoticeDetail> recruitmentNoticeDetails;
+    @OneToOne(mappedBy = "recruitmentNotice", cascade = CascadeType.ALL)
+    private RecruitmentNoticeDetail recruitmentNoticeDetail;
 
-    public RecruitmentNotice(int compensationAmount, String position, String content,
+    public RecruitmentNotice(int compensationAmount, String position,
         RequirementSkill requirementSkill) {
         this.company = null;
         this.compensationAmount = compensationAmount;
         this.position = position;
-        this.content = content;
         this.requirementSkill = requirementSkill;
     }
 
     public void update(RequestDto requestDto) {
         this.compensationAmount = requestDto.compensationAmount();;
         this.position = requestDto.position();
-        this.content = requestDto.content();
         this.requirementSkill = requestDto.requirementSkill();
+        this.recruitmentNoticeDetail.updateContent(requestDto.content());
     }
 
     public void updateCompany(Company company) {
         this.company = company;
+    }
+
+    public void updateRecruitmentNoticeDetail(RecruitmentNoticeDetail recruitmentNoticeDetail) {
+        this.recruitmentNoticeDetail = recruitmentNoticeDetail;
+        recruitmentNoticeDetail.updateRecruitmentNotice(this);
     }
 }
