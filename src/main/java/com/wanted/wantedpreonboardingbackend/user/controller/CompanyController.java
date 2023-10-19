@@ -1,7 +1,7 @@
 package com.wanted.wantedpreonboardingbackend.user.controller;
 
-import com.wanted.wantedpreonboardingbackend.user.controller.dto.CompanyDto;
-import com.wanted.wantedpreonboardingbackend.user.persistence.constant.Nation;
+import com.wanted.wantedpreonboardingbackend.user.controller.dto.CompanyDto.Request;
+import com.wanted.wantedpreonboardingbackend.user.controller.dto.CompanyDto.Response;
 import com.wanted.wantedpreonboardingbackend.user.persistence.entity.Company;
 import com.wanted.wantedpreonboardingbackend.user.persistence.entity.entity.CompanyRepository;
 import lombok.RequiredArgsConstructor;
@@ -19,16 +19,16 @@ public class CompanyController {
 
     private final CompanyRepository companyRepository;
     @PostMapping
-    public CompanyDto.ResponseDto registerCompany(@RequestBody CompanyDto.RequestDto requestDto) {
-        Company saved = companyRepository.save(requestDto.toEntity());
-        return new CompanyDto.ResponseDto(saved);
+    public Response registerCompany(@RequestBody Request request) {
+        Company saved = companyRepository.save(request.toEntity());
+        return Response.of(saved);
     }
 
     @GetMapping("/{id}")
-    public CompanyDto.ResponseDto findCompany(@PathVariable(name = "id") Long id) {
+    public Response findCompany(@PathVariable(name = "id") Long id) {
         Company company = companyRepository.findById(id)
             .orElseThrow(() -> new IllegalStateException("회사가 존재하지 않습니다."));
 
-        return new CompanyDto.ResponseDto(company);
+        return Response.of(company);
     }
 }

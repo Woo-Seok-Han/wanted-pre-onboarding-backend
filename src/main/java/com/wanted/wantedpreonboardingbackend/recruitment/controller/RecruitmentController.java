@@ -1,7 +1,7 @@
 package com.wanted.wantedpreonboardingbackend.recruitment.controller;
 
 import static com.wanted.wantedpreonboardingbackend.recruitment.controller.dto.RecruitmentNoticeDto.RequestDto;
-import static com.wanted.wantedpreonboardingbackend.recruitment.controller.dto.RecruitmentNoticeDto.ResponseDto;
+import static com.wanted.wantedpreonboardingbackend.recruitment.controller.dto.RecruitmentNoticeDto.Response;
 
 import com.wanted.wantedpreonboardingbackend.recruitment.service.RecruitmentService;
 import java.util.List;
@@ -24,25 +24,25 @@ public class RecruitmentController {
 
     @ResponseBody
     @PostMapping("/notice")
-    public ResponseDto registerRecruitmentNotice(RequestDto requestDto) {
+    public Response registerRecruitmentNotice(RequestDto requestDto) {
         return recruitmentService.registerNotice(requestDto);
     }
 
     @ResponseBody
     @GetMapping("/notice/{id}")
-    public ResponseDto findRecruitmentNotice(@PathVariable(name = "id") final Long id) {
+    public Response findRecruitmentNotice(@PathVariable(name = "id") final Long id) {
         return recruitmentService.findNotice(id);
     }
 
     @ResponseBody
     @GetMapping("/notice/list")
-    public List<ResponseDto> findRecruitmentNotice() {
+    public List<Response> findRecruitmentNotice() {
         return recruitmentService.findAllNotice();
     }
 
     @ResponseBody
     @PutMapping("/notice/{id}")
-    public ResponseDto modifyRecruitmentNotice(@PathVariable(name = "id") final Long id, RequestDto requestDto) {
+    public Response modifyRecruitmentNotice(@PathVariable(name = "id") final Long id, RequestDto requestDto) {
         return recruitmentService.modifyNotice(id, requestDto);
     }
 
