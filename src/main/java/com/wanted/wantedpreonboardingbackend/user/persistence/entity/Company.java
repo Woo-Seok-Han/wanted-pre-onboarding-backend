@@ -11,6 +11,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+
+import java.util.ArrayList;
 import java.util.List;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -35,7 +37,7 @@ public class Company {
     private String region;
 
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
-    private List<RecruitmentNotice> recruitmentNoticeList;
+    private List<RecruitmentNotice> recruitmentNoticeList = new ArrayList<>();
 
     private Company(String name, Nation nation, String region) {
         this.id = null;
