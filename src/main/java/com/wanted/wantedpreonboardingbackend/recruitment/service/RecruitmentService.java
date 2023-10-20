@@ -1,21 +1,19 @@
 package com.wanted.wantedpreonboardingbackend.recruitment.service;
 
-import static com.wanted.wantedpreonboardingbackend.recruitment.controller.dto.RecruitmentNoticeDto.RequestDto;
-
 import com.wanted.wantedpreonboardingbackend.recruitment.controller.dto.RecruitmentNoticeDto.Response;
 import com.wanted.wantedpreonboardingbackend.recruitment.persistence.entity.RecruitmentNotice;
 import com.wanted.wantedpreonboardingbackend.recruitment.persistence.entity.RecruitmentNoticeDetail;
-import com.wanted.wantedpreonboardingbackend.recruitment.persistence.repository.RecruitmentNoticeDetailRepository;
 import com.wanted.wantedpreonboardingbackend.recruitment.persistence.repository.RecruitmentNoticeRepository;
 import com.wanted.wantedpreonboardingbackend.user.persistence.entity.Company;
 import com.wanted.wantedpreonboardingbackend.user.persistence.entity.entity.CompanyRepository;
-import java.util.List;
-import java.util.Optional;
-
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+
+import static com.wanted.wantedpreonboardingbackend.recruitment.controller.dto.RecruitmentNoticeDto.RequestDto;
 
 @Slf4j
 @Service
@@ -57,13 +55,7 @@ public class RecruitmentService {
     public Response modifyNotice(final Long id, RequestDto requestDto) {
         RecruitmentNotice notice = recruitmentNoticeRepository.findById(id)
             .orElseThrow(() -> new IllegalStateException("해당하는 채용 공고가 존재하지 않습니다."));
-
         notice.update(requestDto);
-
-        Company company = companyRepository.findById(requestDto.companyId())
-                .orElseThrow(() -> new IllegalStateException("회사가 존재하지 않습니다."));
-        notice.updateCompany(company);
-
         return Response.of(notice);
     }
 
