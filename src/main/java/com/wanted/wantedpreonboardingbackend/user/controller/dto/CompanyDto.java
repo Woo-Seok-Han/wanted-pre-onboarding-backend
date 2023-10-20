@@ -34,6 +34,7 @@ public class CompanyDto {
                 entity.getRecruitmentNoticeList().stream()
                     .map(RecruitmentNoticeDto.Response::of)
                     .toList()
+
             );
         }
     }
