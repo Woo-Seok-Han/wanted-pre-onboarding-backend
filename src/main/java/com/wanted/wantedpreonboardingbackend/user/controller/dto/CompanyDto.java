@@ -25,15 +25,6 @@ public class CompanyDto {
         List<RecruitmentNoticeDto.Response> recruitmentNoticeDtoList
 
     ) {
-        public Response(Long id, String name, Nation nation, String region,
-            List<RecruitmentNoticeDto.Response> recruitmentNoticeDtoList) {
-            this.id = id;
-            this.name = name;
-            this.nation = nation;
-            this.region = region;
-            this.recruitmentNoticeDtoList = recruitmentNoticeDtoList;
-        }
-
         public static Response of(Company entity){
             return new Response(
                 entity.getId(),
