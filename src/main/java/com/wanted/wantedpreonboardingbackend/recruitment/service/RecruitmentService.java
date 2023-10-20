@@ -10,6 +10,8 @@ import com.wanted.wantedpreonboardingbackend.recruitment.persistence.repository.
 import com.wanted.wantedpreonboardingbackend.user.persistence.entity.Company;
 import com.wanted.wantedpreonboardingbackend.user.persistence.entity.entity.CompanyRepository;
 import java.util.List;
+import java.util.Optional;
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -55,7 +57,13 @@ public class RecruitmentService {
     public Response modifyNotice(final Long id, RequestDto requestDto) {
         RecruitmentNotice notice = recruitmentNoticeRepository.findById(id)
             .orElseThrow(() -> new IllegalStateException("해당하는 채용 공고가 존재하지 않습니다."));
+
         notice.update(requestDto);
+
+        Company company = companyRepository.findById(requestDto.companyId())
+                .orElseThrow(() -> new IllegalStateException("회사가 존재하지 않습니다."));
+        notice.updateCompany(company);
+
         return Response.of(notice);
     }
 

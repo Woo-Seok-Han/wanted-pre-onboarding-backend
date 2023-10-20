@@ -6,14 +6,7 @@ import static com.wanted.wantedpreonboardingbackend.recruitment.controller.dto.R
 import com.wanted.wantedpreonboardingbackend.recruitment.service.RecruitmentService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/recruitment")
@@ -42,7 +35,7 @@ public class RecruitmentController {
 
     @ResponseBody
     @PutMapping("/notice/{id}")
-    public Response modifyRecruitmentNotice(@PathVariable(name = "id") final Long id, RequestDto requestDto) {
+    public Response modifyRecruitmentNotice(@PathVariable(name = "id") final Long id, @RequestBody RequestDto requestDto) {
         return recruitmentService.modifyNotice(id, requestDto);
     }
 
