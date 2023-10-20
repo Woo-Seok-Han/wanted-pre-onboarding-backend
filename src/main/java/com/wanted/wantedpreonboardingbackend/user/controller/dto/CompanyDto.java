@@ -25,6 +25,7 @@ public class CompanyDto {
         List<RecruitmentNoticeDto.Response> recruitmentNoticeDtoList
 
     ) {
+
         public static Response of(Company entity){
             return new Response(
                 entity.getId(),
@@ -34,7 +35,6 @@ public class CompanyDto {
                 entity.getRecruitmentNoticeList().stream()
                     .map(RecruitmentNoticeDto.Response::of)
                     .toList()
-
             );
         }
     }
