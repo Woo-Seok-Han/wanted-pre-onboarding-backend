@@ -65,4 +65,5 @@ public class RecruitmentService {
             .orElseThrow(() -> new IllegalStateException("해당하는 채용 공고가 존재하지 않습니다."));
         recruitmentNoticeRepository.delete(notice);
     }
+
 }
