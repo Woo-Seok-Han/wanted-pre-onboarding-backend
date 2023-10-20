@@ -1,19 +1,19 @@
 package com.wanted.wantedpreonboardingbackend.recruitment.service;
 
-import static com.wanted.wantedpreonboardingbackend.recruitment.controller.dto.RecruitmentNoticeDto.RequestDto;
-
 import com.wanted.wantedpreonboardingbackend.recruitment.controller.dto.RecruitmentNoticeDto.Response;
 import com.wanted.wantedpreonboardingbackend.recruitment.persistence.entity.RecruitmentNotice;
 import com.wanted.wantedpreonboardingbackend.recruitment.persistence.entity.RecruitmentNoticeDetail;
-import com.wanted.wantedpreonboardingbackend.recruitment.persistence.repository.RecruitmentNoticeDetailRepository;
 import com.wanted.wantedpreonboardingbackend.recruitment.persistence.repository.RecruitmentNoticeRepository;
 import com.wanted.wantedpreonboardingbackend.user.persistence.entity.Company;
 import com.wanted.wantedpreonboardingbackend.user.persistence.entity.entity.CompanyRepository;
-import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+
+import static com.wanted.wantedpreonboardingbackend.recruitment.controller.dto.RecruitmentNoticeDto.RequestDto;
 
 @Slf4j
 @Service
