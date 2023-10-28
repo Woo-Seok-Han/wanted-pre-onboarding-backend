@@ -5,12 +5,10 @@ import static com.wanted.wantedpreonboardingbackend.recruitment.controller.dto.R
 import com.wanted.wantedpreonboardingbackend.recruitment.controller.dto.RecruitmentNoticeDto.Response;
 import com.wanted.wantedpreonboardingbackend.recruitment.persistence.entity.RecruitmentNotice;
 import com.wanted.wantedpreonboardingbackend.recruitment.persistence.entity.RecruitmentNoticeDetail;
-import com.wanted.wantedpreonboardingbackend.recruitment.persistence.repository.RecruitmentNoticeDetailRepository;
 import com.wanted.wantedpreonboardingbackend.recruitment.persistence.repository.RecruitmentNoticeRepository;
 import com.wanted.wantedpreonboardingbackend.user.persistence.entity.Company;
-import com.wanted.wantedpreonboardingbackend.user.persistence.entity.entity.CompanyRepository;
+import com.wanted.wantedpreonboardingbackend.user.persistence.entity.repository.CompanyRepository;
 import java.util.List;
-import java.util.Optional;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

@@ -3,7 +3,7 @@ package com.wanted.wantedpreonboardingbackend.user.controller;
 import com.wanted.wantedpreonboardingbackend.user.controller.dto.CompanyDto.Request;
 import com.wanted.wantedpreonboardingbackend.user.controller.dto.CompanyDto.Response;
 import com.wanted.wantedpreonboardingbackend.user.persistence.entity.Company;
-import com.wanted.wantedpreonboardingbackend.user.persistence.entity.entity.CompanyRepository;
+import com.wanted.wantedpreonboardingbackend.user.persistence.entity.repository.CompanyRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

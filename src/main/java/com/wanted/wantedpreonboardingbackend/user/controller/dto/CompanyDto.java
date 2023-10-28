@@ -21,8 +21,8 @@ public class CompanyDto {
         Long id,
         String name,
         Nation nation,
-        String region,
-        List<RecruitmentNoticeDto.Response> recruitmentNoticeDtoList
+        String region
+//        List<RecruitmentNoticeDto.Response> recruitmentNoticeDtoList
 
     ) {
 
@@ -31,10 +31,10 @@ public class CompanyDto {
                 entity.getId(),
                 entity.getName(),
                 entity.getNation(),
-                entity.getRegion(),
-                entity.getRecruitmentNoticeList().stream()
-                    .map(RecruitmentNoticeDto.Response::of)
-                    .toList()
+                entity.getRegion()
+//                entity.getRecruitmentNoticeList().stream()
+//                    .map(RecruitmentNoticeDto.Response::of)
+//                    .toList()
             );
         }
     }

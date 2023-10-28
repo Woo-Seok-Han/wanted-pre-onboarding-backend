@@ -1,9 +1,8 @@
 package com.wanted.wantedpreonboardingbackend.user.controller;
 
 import com.wanted.wantedpreonboardingbackend.user.controller.dto.UserDto;
-import com.wanted.wantedpreonboardingbackend.user.controller.dto.UserDto.ResponseDto;
 import com.wanted.wantedpreonboardingbackend.user.persistence.entity.Users;
-import com.wanted.wantedpreonboardingbackend.user.persistence.entity.entity.UserRepository;
+import com.wanted.wantedpreonboardingbackend.user.persistence.entity.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
