@@ -1,11 +1,8 @@
 package com.wanted.wantedpreonboardingbackend.user.persistence.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -19,16 +16,20 @@ public class Users {
     @Column(name = "user_id")
     private Long id;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "company_id")
+    private Company company;
+
     @Column(name = "user_name")
     private String name;
 
+    @Builder
     private Users(String name) {
         this.id = null;
         this.name = name;
     }
 
-    public static Users createUsers(String name) {
-        return new Users(name);
+    public void updateCompany(Company company) {
+        this.company = company;
     }
-
 }

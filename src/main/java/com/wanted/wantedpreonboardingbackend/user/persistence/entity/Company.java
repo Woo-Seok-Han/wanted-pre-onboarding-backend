@@ -39,6 +39,9 @@ public class Company {
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
     private List<RecruitmentNotice> recruitmentNoticeList = new ArrayList<>();
 
+    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
+    private List<Users> userList = new ArrayList<>();
+
     private Company(String name, Nation nation, String region) {
         this.id = null;
         this.name = name;
@@ -53,5 +56,10 @@ public class Company {
     public void addRecruitmentNotice(RecruitmentNotice recruitmentNotice) {
         this.recruitmentNoticeList.add(recruitmentNotice);
         recruitmentNotice.updateCompany(this);
+    }
+
+    public void addUser(Users user) {
+        this.userList.add(user);
+        user.updateCompany(this);
     }
 }

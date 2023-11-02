@@ -4,6 +4,7 @@ import com.wanted.wantedpreonboardingbackend.user.controller.dto.CompanyDto.Requ
 import com.wanted.wantedpreonboardingbackend.user.controller.dto.CompanyDto.Response;
 import com.wanted.wantedpreonboardingbackend.user.persistence.entity.Company;
 import com.wanted.wantedpreonboardingbackend.user.persistence.entity.repository.CompanyRepository;
+import com.wanted.wantedpreonboardingbackend.user.service.CompanyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class CompanyController {
 
     private final CompanyRepository companyRepository;
+    private final CompanyService companyService;
     @PostMapping
     public Response registerCompany(@RequestBody Request request) {
         Company saved = companyRepository.save(request.toEntity());
@@ -26,9 +28,7 @@ public class CompanyController {
 
     @GetMapping("/{id}")
     public Response findCompany(@PathVariable(name = "id") Long id) {
-        Company company = companyRepository.findById(id)
-            .orElseThrow(() -> new IllegalStateException("회사가 존재하지 않습니다."));
-
+        Company company = companyService.findCompanyById(id);
         return Response.of(company);
     }
 }

@@ -4,20 +4,23 @@ import com.wanted.wantedpreonboardingbackend.user.persistence.entity.Users;
 
 public class UserDto {
 
-    public record RequestDto (
-        String name
+    public record createRequest(
+        String name,
+        Long companyId
     ) {
         public Users toEntity() {
-            return Users.createUsers(name);
+            return Users.builder()
+                    .name(name)
+                    .build();
         }
     }
 
-    public record ResponseDto (
+    public record Response(
         Long id,
         String name
 
     ) {
-        public ResponseDto(Users entity) {
+        public Response(Users entity) {
             this(
                 entity.getId(),
                 entity.getName()
